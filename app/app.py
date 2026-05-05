@@ -50,7 +50,7 @@ def handle_ollama(prompt,chat_history, model_id=OLLAMA_MODEL_ID):
             ollama_messages.append({"role":role,"content":entry["content"]})
             ollama_messages.append({"role":"user","content":prompt})
 
-            response = ollama.chat(model=model_id, messages=ollama_message)
+            response = ollama.chat(model=model_id, message=ollama_messages)
         return response['message']['content']
     except Exception as e:
         return f"Error connecting to Ollama: {e}."
